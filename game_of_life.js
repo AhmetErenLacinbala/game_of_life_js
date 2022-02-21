@@ -14,9 +14,10 @@ let grid;
 let cols;
 let rows;
 let resolution = 10;
+let newGrid;
 
 function setup(){
-    createCanvas(600,600);
+    createCanvas(1800,900);
     cols = width / resolution;
     rows = height / resolution;
 
@@ -27,6 +28,7 @@ function setup(){
         }
     }
     frameRate(30);
+    newGrid = make2DArray(cols, rows);
 }
 
 function draw() {
@@ -43,7 +45,6 @@ function draw() {
         }
     }
 
-    let newGrid = make2DArray(cols, rows);
 
     for (let i = 0; i < cols; i++ ){
         for (let j = 0; j < rows; j++){
@@ -68,7 +69,7 @@ function draw() {
             
         }
     }
-    grid = newGrid;  
+    grid = newGrid.map(arr => arr.slice()); 
 }
   
 
